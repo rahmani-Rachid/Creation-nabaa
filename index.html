@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -143,31 +143,52 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             line-height: 1;
-            background: linear-gradient(180deg, #ffffff 0%, var(--yellow) 50%, #cc9900 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 40px rgba(255,239,0,0.4));
-            text-shadow: none;
-            transform-style: preserve-3d;
+            color: #fff;
+            text-shadow:
+                0px 1px 0px #ccaa00,
+                0px 2px 0px #bbaa00,
+                0px 3px 0px #aa9900,
+                0px 4px 0px #998800,
+                0px 5px 0px #887700,
+                0px 6px 0px #776600,
+                0px 7px 0px #665500,
+                0px 8px 0px #554400,
+                0px 9px 0px #443300,
+                0px 10px 10px rgba(0,0,0,0.5),
+                0px 0px 40px rgba(255,239,0,0.5);
             animation: float 4s ease-in-out infinite;
             position: relative;
-        }
-        .brand::after {
-            content: 'Creation Nabaa';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 60%, rgba(255,239,0,0.15));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transform: scaleY(-1) translateY(-2px);
-            opacity: 0.3;
-            filter: blur(2px);
+            transform-style: preserve-3d;
         }
         @keyframes float {
-            0%,100% { transform: translateY(0); filter: drop-shadow(0 0 40px rgba(255,239,0,0.4)); }
-            50% { transform: translateY(-12px); filter: drop-shadow(0 20px 60px rgba(255,239,0,0.6)); }
+            0%,100% { 
+                transform: translateY(0) rotateX(10deg);
+                text-shadow:
+                    0px 1px 0px #ccaa00,
+                    0px 2px 0px #bbaa00,
+                    0px 3px 0px #aa9900,
+                    0px 4px 0px #998800,
+                    0px 5px 0px #887700,
+                    0px 6px 0px #776600,
+                    0px 7px 0px #665500,
+                    0px 8px 0px #554400,
+                    0px 10px 10px rgba(0,0,0,0.5),
+                    0px 0px 40px rgba(255,239,0,0.4);
+            }
+            50% { 
+                transform: translateY(-15px) rotateX(15deg);
+                text-shadow:
+                    0px 1px 0px #ccaa00,
+                    0px 2px 0px #bbaa00,
+                    0px 3px 0px #aa9900,
+                    0px 4px 0px #998800,
+                    0px 5px 0px #887700,
+                    0px 6px 0px #776600,
+                    0px 7px 0px #665500,
+                    0px 8px 0px #554400,
+                    0px 20px 20px rgba(0,0,0,0.4),
+                    0px 0px 60px rgba(255,239,0,0.7);
+            }
         }
 
         .hero-sub {
@@ -373,6 +394,9 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .contact-section::before {
             content: '';
@@ -446,20 +470,14 @@
             text-align: center;
             color: #333;
             font-size: 0.85em;
+            white-space: nowrap;
         }
         footer span { color: var(--yellow); }
     </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <div class="nav-logo">CN</div>
-    <ul class="nav-links">
-        <li><a href="#gallery">الأعمال</a></li>
-        <li><a href="#contact">تواصل</a></li>
-    </ul>
-</nav>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -467,6 +485,7 @@
     <div class="blob blob2"></div>
 
     <div class="hero-content">
+        <img src="nabaa.jpg" alt="Creation Nabaa" style="width:200px; height:240px; object-fit:cover; object-position:top; mix-blend-mode:luminosity; filter:contrast(1.1) brightness(1.1); margin-bottom:25px;">
         <div class="badge">✦ الفن في كل خيط ✦</div>
         <div class="brand">Creation Nabaa</div>
         <div class="hero-line"></div>
@@ -582,7 +601,7 @@
 
 <!-- FOOTER -->
 <footer>
-    جميع الحقوق محفوظة © 2026 — <span>Creation Nabaa</span>
+    جميع الحقوق محفوظة © 2026 — <span>Creation Nabaa</span> 
 </footer>
 
 </body>
