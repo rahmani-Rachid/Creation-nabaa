@@ -3,73 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creation Nabaa - معرض المنسوجات</title>
+    <title>Creation Nabaa</title>
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            /* خلفية الموقع صفراء كناري */
-            background-color: #ffef00; 
-            margin: 0; 
-            padding: 20px; 
-            text-align: center; 
-            color: #333; 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            overflow-x: hidden;
         }
-        header { 
-            background-color: #fff; 
-            padding: 30px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            margin-bottom: 30px; 
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
-        h1 { 
-            /* الكتابة حمراء مع تحديد أزرق */
-            color: #ff0000; 
-            margin: 0; 
-            font-size: 3.5em; 
-            text-shadow: 
-                -2px -2px 0 #0000ff,  
-                 2px -2px 0 #0000ff,
-                -2px  2px 0 #0000ff,
-                 2px  2px 0 #0000ff;
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%);
+            border-radius: 50%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        .logo-wrap {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .logo-wrap .brand {
+            font-size: 4.5em;
+            font-weight: 900;
+            letter-spacing: 6px;
+            background: linear-gradient(90deg, #d4af37, #fff8dc, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            animation: shimmer 3s linear infinite;
+            background-size: 200%;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% }
+            100% { background-position: 200% }
+        }
+        .logo-wrap .sub {
+            font-size: 1.1em;
+            color: #d4af37aa;
+            letter-spacing: 3px;
+            margin-top: 8px;
+        }
+        .divider {
+            width: 120px; height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 20px auto;
+        }
+        .hero-desc {
+            color: #ccc;
+            font-size: 1.05em;
+            max-width: 500px;
+            text-align: center;
+            line-height: 1.8;
+            z-index: 2;
+            position: relative;
+        }
+        .scroll-btn {
+            margin-top: 40px;
+            z-index: 2;
+            position: relative;
+            background: linear-gradient(135deg, #d4af37, #b8960c);
+            color: #1a1a2e;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
             letter-spacing: 2px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.4);
         }
-        .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            padding: 10px; 
+        .scroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.6);
         }
-        .card { 
-            background: white; 
-            padding: 15px; 
-            border-radius: 12px; 
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1); 
-            transition: transform 0.3s; 
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-section {
+            padding: 80px 30px;
+            background: #12122a;
         }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: auto; border-radius: 8px; object-fit: cover; }
-        .card p { font-weight: bold; margin-top: 15px; font-size: 1.1em; color: #2c3e50; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.5em;
+            color: #d4af37;
+            letter-spacing: 3px;
+        }
+        .section-title p {
+            color: #aaa;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #1e1e3a, #16213e);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(212,175,55,0.2);
+            transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+            position: relative;
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(212,175,55,0.25);
+            border-color: rgba(212,175,55,0.7);
+        }
+        .img-wrap {
+            position: relative;
+            overflow: hidden;
+            height: 260px;
+        }
+        .img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            background: #2a2a4a;
+        }
+        .card:hover .img-wrap img {
+            transform: scale(1.08);
+        }
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(212,175,55,0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .card:hover .overlay { opacity: 1; }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+        .card-body .tag {
+            display: inline-block;
+            background: rgba(212,175,55,0.15);
+            color: #d4af37;
+            font-size: 0.75em;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(212,175,55,0.3);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .card-body h3 {
+            color: #fff;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0d0d1a;
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(212,175,55,0.15);
+        }
+        footer span { color: #d4af37; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Creation Nabaa</h1>
-        <p>تصميم وتفصيل أرقى المنسوجات والديكورات المنزلية</p>
-    </header>
+<!-- HERO -->
+<section class="hero">
+    <div class="logo-wrap">
+        <div class="brand">Creation Nabaa</div>
+        <div class="divider"></div>
+        <div class="sub">✦ منسوجات راقية وديكورات منزلية ✦</div>
+    </div>
+    <p class="hero-desc">نقدم لكم أرقى تصاميم المنسوجات والديكورات المنزلية المصنوعة بعناية فائقة وإبداع متميز</p>
+    <button class="scroll-btn" onclick="document.querySelector('.gallery-section').scrollIntoView({behavior:'smooth'})">
+        اكتشف أعمالنا ↓
+    </button>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+    <div class="section-title">
+        <h2>✦ معرض الأعمال ✦</h2>
+        <p>مجموعة مختارة من أجمل منتجاتنا</p>
+    </div>
 
     <div class="gallery">
+
         <div class="card">
-            <img src="panier1.jpg" alt="سلال خبز قماشية">
-            <p>سلال خبز قماشية مزينة بالدانتيل</p>
+            <div class="img-wrap">
+                <img src="panier 1.jpg" alt="سلة خبز 1">
+                <div class="overlay"></div>
+            </div>
+            <div class="card-body">
+                <span class="tag">سلال</span>
+                <h3>سلة خبز قماشية بالدانتيل - 1</h3>
+            </div>
         </div>
 
         <div class="card">
-            <img src="rideaux1.jpg" alt="ستارة مطبخ">
-            <p>ستائر مطبخ عصرية</p>
+            <div class="img-wrap">
+                <img src="panier2.jpg" alt="سلة خبز 2">
+                <div class="overlay"></div>
+            </div>
+            <div class="card-body">
+                <span class="tag">سلال</span>
+                <h3>سلة خبز قماشية بالدانتيل - 2</h3>
+            </div>
         </div>
 
+        <div class="card">
+            <div class="img-wrap">
+                <img src="rideaux1.jpg" alt="ستارة 1">
+                <div class="overlay"></div>
+            </div>
+            <div class="card-body">
+                <span class="tag">ستائر</span>
+                <h3>ستائر مطبخ عصرية - 1</h3>
+            </div>
         </div>
+
+        <div class="card">
+            <div class="img-wrap">
+                <img src="rideaux2.jpg" alt="ستارة 2">
+                <div class="overlay"></div>
+            </div>
+            <div class="card-body">
+                <span class="tag">ستائر</span>
+                <h3>ستائر مطبخ عصرية - 2</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-wrap">
+                <img src="vichy1.jpg" alt="فيشي 1">
+                <div class="overlay"></div>
+            </div>
+            <div class="card-body">
+                <span class="tag">فيشي</span>
+                <h3>منسوجات فيشي الكلاسيكية - 1</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-wrap">
+                <img src="vichy2.jpg" alt="فيشي 2">
+                <div class="overlay"></div>
+            </div>
+            <div class="card-body">
+                <span class="tag">فيشي</span>
+                <h3>منسوجات فيشي الكلاسيكية - 2</h3>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    جميع الحقوق محفوظة © 2026 <span>Creation Nabaa</span> — تصميم وتفصيل بإتقان
+</footer>
 
 </body>
 </html>
