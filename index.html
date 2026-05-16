@@ -5,11 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creation Nabaa - معرض المنسوجات</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; margin: 0; padding: 20px; text-align: center; color: #333; }
-        header { background-color: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        h1 { color: #d35400; margin: 0; font-size: 2.5em; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 10px; }
-        .card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            /* خلفية الموقع صفراء كناري */
+            background-color: #ffef00; 
+            margin: 0; 
+            padding: 20px; 
+            text-align: center; 
+            color: #333; 
+        }
+        header { 
+            background-color: #fff; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            margin-bottom: 30px; 
+        }
+        h1 { 
+            /* الكتابة حمراء مع تحديد أزرق */
+            color: #ff0000; 
+            margin: 0; 
+            font-size: 3.5em; 
+            text-shadow: 
+                -2px -2px 0 #0000ff,  
+                 2px -2px 0 #0000ff,
+                -2px  2px 0 #0000ff,
+                 2px  2px 0 #0000ff;
+            letter-spacing: 2px;
+        }
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            padding: 10px; 
+        }
+        .card { 
+            background: white; 
+            padding: 15px; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1); 
+            transition: transform 0.3s; 
+        }
         .card:hover { transform: translateY(-5px); }
         .card img { width: 100%; height: auto; border-radius: 8px; object-fit: cover; }
         .card p { font-weight: bold; margin-top: 15px; font-size: 1.1em; color: #2c3e50; }
@@ -23,36 +59,17 @@
     </header>
 
     <div class="gallery">
-        <!-- قسم السلال -->
         <div class="card">
-            <img src="1000095016.jpg" alt="سلال خبز قماشية">
+            <img src="panier1.jpg" alt="سلال خبز قماشية">
             <p>سلال خبز قماشية مزينة بالدانتيل</p>
         </div>
+
         <div class="card">
-            <img src="1000095017.jpg" alt="طقم سلال ديكور">
-            <p>طقم سلال ديكور بأشكال متنوعة</p>
+            <img src="rideaux1.jpg" alt="ستارة مطبخ">
+            <p>ستائر مطبخ عصرية</p>
         </div>
 
-        <!-- قسم الستائر -->
-        <div class="card">
-            <img src="1000092499.jpg" alt="ستارة مطبخ مربعات حمراء">
-            <p>ستارة مطبخ كلاسيكية باللون الأحمر</p>
         </div>
-        <div class="card">
-            <img src="1000092498.jpg" alt="ستارة مطبخ مربعات زرقاء">
-            <p>ستارة مطبخ أنيقة باللون الأزرق</p>
-        </div>
-        
-        <!-- الصور المضافة حديثاً -->
-        <div class="card">
-            <img src="1000092500_2.jpg" alt="ستارة مطبخ بنقوش القهوة">
-            <p>ستارة مطبخ بتصميم "Coffee Shop" الراقي</p>
-        </div>
-        <div class="card">
-            <img src="1000092501_2.jpg" alt="ستارة مطبخ بنقوش اليقطين">
-            <p>ستارة مطبخ بنقوش اليقطين الدافئة</p>
-        </div>
-    </div>
 
 </body>
 </html>
